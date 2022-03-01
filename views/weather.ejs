@@ -1,0 +1,12 @@
+<%-include("header")-%>
+<p id="today"></p>
+
+<script>
+    const currentDate = new Date();
+    document.getElementById("today").innerHTML = currentDate;
+</script>
+
+<h4><%=city%>, <%=Country%></h4>
+<h5><%=Temp%> ℃ <img src="<%=Image%>" alt=""> <%=Description%></h5>
+<h5>Feels like <%=Feels%> ℃</h5>
+<%-include("footer")-%>
