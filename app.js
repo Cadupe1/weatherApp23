@@ -45,10 +45,7 @@ app.post("/", function (req, res) {
             let weatherDescription = _.startCase(weatherData.weather[0].description)
             res.render("weather", { city: query, Country: country, Temp: temp, Image: imageURL, Feels: feelsLike, Description: weatherDescription })
         })
-
     });
-
-
 })
 
 //heroku listening port
