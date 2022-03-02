@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 app.post("/", function (req, res) {
 
     //   API Data request from external server
-    process.env.API_KEY;
+
     let query = _.startCase(req.body.city);
     let unit = "metric"
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${process.env.API_KEY}&units=${unit}`;
