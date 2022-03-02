@@ -6,7 +6,11 @@
     document.getElementById("today").innerHTML = currentDate;
 </script>
 
+<% if (!err){ %>
 <h4><%=city%>, <%=Country%></h4>
 <h5><%=Temp%> ℃ <img src="<%=Image%>" alt=""> <%=Description%></h5>
 <h5>Feels like <%=Feels%> ℃</h5>
+<%}else{%>
+<h4>City not found!</h4>
+<% } %>
 <%-include("footer")-%>
