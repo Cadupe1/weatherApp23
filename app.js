@@ -5,7 +5,7 @@ const _ = require("lodash");
 
 const app = express();
 
-
+process.env.API_KEY
 app.use(express.urlencoded({ extended: true }));// parse data from browser
 
 app.use(express.static("public"));//add static files 
@@ -54,7 +54,7 @@ if (port == null || port == "") {
     port = 3000;
 }
 
-app.listen(port, function (req, res) {
+app.listen(port, function () {
     console.log("The server is running!");
 })
 
