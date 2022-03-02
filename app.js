@@ -34,17 +34,23 @@ app.post("/", function (req, res) {
             returnedData += data;
         });
 
+
         console.log(query);
         response.on("end", function () {
-            let weatherData = JSON.parse(returnedData);
+            try {
+                let weatherData = JSON.parse(returnedData);
 
-            let temp = weatherData.main.temp;
-            let icon = weatherData.weather[0].icon;
-            let imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-            let country = weatherData.sys.country;
-            let feelsLike = weatherData.main.feels_like;
-            let weatherDescription = _.startCase(weatherData.weather[0].description)
-            res.render("weather", { city: query, Country: country, Temp: temp, Image: imageURL, Feels: feelsLike, Description: weatherDescription })
+                let temp = weatherData.main.temp;
+                let icon = weatherData.weather[0].icon;
+                let imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                let country = weatherData.sys.country;
+                let feelsLike = weatherData.main.feels_like;
+                let weatherDescription = _.startCase(weatherData.weather[0].description)
+                res.render("weather", { city: query, Country: country, Temp: temp, Image: imageURL, Feels: feelsLike, Description: weatherDescription })
+            } catch (e) {
+                res.render("weather");
+            }
+
         })
     });
 })
