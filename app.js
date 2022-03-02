@@ -40,11 +40,11 @@ app.post("/", function (req, res) {
             try {
                 let weatherData = JSON.parse(returnedData);
 
-                let temp = weatherData.main.temp;
+                let temp = Math.round(weatherData.main.temp);
                 let icon = weatherData.weather[0].icon;
                 let imageURL = `http://openweathermap.org/img/wn/${icon}@2x.png`;
                 let country = weatherData.sys.country;
-                let feelsLike = weatherData.main.feels_like;
+                let feelsLike = Math.round(weatherData.main.feels_like);
                 let weatherDescription = _.startCase(weatherData.weather[0].description)
                 res.render("weather", { city: query, Country: country, Temp: temp, Image: imageURL, Feels: feelsLike, Description: weatherDescription })
             } catch (e) {
